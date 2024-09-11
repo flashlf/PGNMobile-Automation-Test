@@ -12,7 +12,7 @@ public final class AppConstants {
     /** GENERAL CONFIG **/
     public static final String ACC_PHONE = "";
     public static final String ACC_PASS = "";
-    public static final URL HOST_URL = "http://127.0.0.1:4723/";
+    public static final String HOST_URL = "http://127.0.0.1:4723/";
     public static final String CAP_DEVICE = ""; // your device name
     public static final String CAP_UDID = ""; // Unique Id in adb device command
     public static final String CAP_PLATFORM_NAME = "Android"; // Android | IOS
