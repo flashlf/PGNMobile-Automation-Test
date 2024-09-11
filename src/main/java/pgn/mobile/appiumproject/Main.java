@@ -3,6 +3,7 @@ package pgn.mobile.appiumproject;
 import io.appium.java_client.flutter.android.FlutterAndroidDriver;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.net.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -45,7 +46,7 @@ public class Main {
         dCap.setCapability("appium:automationName", AppConstants.CAP_AUTOMATION_NAME);
         // dCap.setCapability("appium:noReset", true); // Clear Cache ?
         
-        driver = new FlutterAndroidDriver(AppConstants.HOST_URL, dCap);
+        driver = new FlutterAndroidDriver(new URL(AppConstants.HOST_URL), dCap);
         System.out.println("Testing Appium Started");
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
