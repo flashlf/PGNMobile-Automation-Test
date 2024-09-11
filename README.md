@@ -21,3 +21,6 @@ Automation UI Testing untuk aplikasi PGN Mobile
 2. Connect device via usb onto your PC
 3. Activate USB Debugging option
 4. Just Run the main class java in your IDE
+
+
+*Note: Don't Forget to Download Declared Dependencies from Maven in these project, i strongly suggest to download javadoc and source too
