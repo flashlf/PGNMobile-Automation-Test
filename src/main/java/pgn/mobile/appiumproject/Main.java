@@ -26,6 +26,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             initiateDevice();
+            OnboardTest.onboardLogin();
         } catch (Exception e) {
             System.out.println(e.getCause());
             System.out.println(e.getMessage());
