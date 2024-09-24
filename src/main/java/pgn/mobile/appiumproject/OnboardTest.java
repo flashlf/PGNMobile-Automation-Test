@@ -19,15 +19,16 @@ import pgn.mobile.appiumproject.constants.AppConstants;
  * karena tidak sesuai dengan timer resend kode otp
  */
 public class OnboardTest {
-    static final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");              
+    static final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+    protected static String OTP;
+    
     
     public static void onboardLogin() throws Exception{
         Duration waitTime = Duration.ofSeconds(10);
         WebDriverWait wait = new WebDriverWait(Main.driver, waitTime);
         WebElement btnLogin = Main.driver.findElement(By.xpath(AppConstants.XPATH_ONBOARD_BTN_LOGIN));
         btnLogin.click();
-
-        loginScenario();                                
+        loginScenario();
     }
     
     /**
@@ -82,8 +83,6 @@ public class OnboardTest {
         inputPassword.click();
         inputPassword.clear();
         inputPassword.sendKeys(AppConstants.ACC_PASS);
-        
-        
         
         if (!passwordValue.isEmpty()) {
             Main.driver.hideKeyboard();
@@ -172,15 +171,11 @@ public class OnboardTest {
         }
         
         // Otp Sesuai                
-        Main.driver.perform(Arrays.asList(tap));                
-        Thread.sleep(1000);
-        
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
-        Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+        Main.driver.perform(Arrays.asList(tap));
+        OTP = Utility.getLatestOTP();
+        Assert.assertNotEquals("Tidak Mendapat kode OTP", null, OTP);
+        Thread.sleep(2000);
+        inputOtp(OTP);
                 
         wait.until(ExpectedConditions.visibilityOf(inputOtp));
         submitOtp.click();
@@ -199,6 +194,45 @@ public class OnboardTest {
         Main.driver.pressKey(new KeyEvent(AndroidKey.DEL));
         Main.driver.pressKey(new KeyEvent(AndroidKey.DEL));
         Main.driver.pressKey(new KeyEvent(AndroidKey.DEL));
+    }
+    
+    static void inputOtp(String kodeOtp) {
+        for (int i=0; i<6; i++) {
+            switch (kodeOtp.charAt(i)) {
+                case '0':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_0));
+                    break;
+                case '1':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+                    break;
+                case '2':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+                    break;
+                case '3':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+                    break;
+                case '4':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+                    break;
+                case '5':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_5));
+                    break;
+                case '6':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_6));
+                    break;
+                case '7':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_7));
+                    break;
+                case '8':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_8));
+                    break;
+                case '9':
+                    Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_9));
+                    break;
+                default:                    
+                    break;
+            }
+        }
     }
 
 }
