@@ -145,7 +145,7 @@ public class OnboardTest {
         Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
         Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
         Main.driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
-        Thread.sleep(50000);
+        Thread.sleep(40000);
 //        WebElement text = Main.driver.findElement(By.xpath(AppConstants.XPATH_OTP_RESEND));
         WebElement resendOtp = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AppConstants.XPATH_OTP_RESEND)));
         // refresh element submitOtp

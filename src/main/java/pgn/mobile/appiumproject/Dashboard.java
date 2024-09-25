@@ -29,7 +29,6 @@ public class Dashboard {
             
             int key = (int) entry.getKey();
             String value = entry.getValue();
-            System.out.println(entry.getKey() + ": " + entry.getValue());
             System.out.println("Var => " + key + ": " + entry.getValue());
             switch (value.toString()) {
                 case "skip" :
@@ -43,7 +42,7 @@ public class Dashboard {
                     xpathElem = (String) AppConstants.XPATH_TOUR_STEP_CONTINUE[key];                    
                     break;
             }
-//            Thread.sleep(3000);
+            Thread.sleep(3000);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathElem.toString()))).isDisplayed();
             Main.driver.findElement(By.xpath(xpathElem.toString())).click();
             
@@ -57,7 +56,7 @@ public class Dashboard {
         
         if (skip) {            
             WebElement btnLewati = Main.driver.findElement(By.xpath(AppConstants.XPATH_SKIP_ADD_ID_PEL));
-            btnLewati.clear();
+            btnLewati.click();
         } else { // Add Id Pelanggan
             WebElement btnAddPel = Main.driver.findElement(By.xpath(AppConstants.XPATH_ADD_ID_PEL));
             btnAddPel.click();
