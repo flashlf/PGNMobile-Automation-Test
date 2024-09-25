@@ -48,10 +48,42 @@ public final class AppConstants {
     public static final String XPATH_OTP_BTN_SUBMIT = "//android.widget.ScrollView/android.view.View[7]";
     
     // Dashboard Screen
-    public static final String XPATH_TOUR_STEP1_SKIP = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[5]";
-    public static final String XPATH_TOUR_STEP1_CONTINUE = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]";
+
+    // Tour Guide
+    public static final String[] XPATH_TOUR_STEP_SKIP = {
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[5]", //STEP1
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[7]", //STEP2
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[11]", //STEP3
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[9]", //STEP4
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[7]", //STEP5
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[7]", //STEP6
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[7]" //STEP7
+    };
     
-    / //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[5]
+    public static final String[] XPATH_TOUR_STEP_CONTINUE = {
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]", //STEP1
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[8]", //STEP2
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[12]", //STEP3
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[10]", //STEP4
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[8]", //STEP5
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[8]", //STEP6
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[8]" //STEP7
+    };
+    
+    public static final String[] XPATH_TOUR_STEP_BACK = {
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]", // STEP2 to STEP1
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[10]", // STEP3 to STEP2
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[8]", // STEP4 to STEP3
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]", // STEP5 to STEP4
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]", // STEP6 to STEP5
+        "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]" // STEP7 to STEP6
+    };
+    
+    public static final String XPATH_STRING_ADD_ID_PEL = "//android.view.View[@content-desc=\"Pilih ID Pelanggan\nMenampilkan maksimal 5 (lima) ID Pelanggan\nLewati\"]";
+    public static final String XPATH_SKIP_ADD_ID_PEL = "//android.view.View[@content-desc=\"Pilih ID Pelanggan\nMenampilkan maksimal 5 (lima) ID Pelanggan\nLewati\"]/android.view.View[2]";
+    public static final String XPATH_ADD_ID_PEL = "//android.view.View[@content-desc=\"Tambah ID Pelanggan Baru\"]";
+
+    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[5]
     // 618,1122 Step1 Skip Pointer
     // //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[6]
     // 973, 1117 Step1 Continue
