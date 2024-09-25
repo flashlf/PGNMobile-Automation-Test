@@ -5,6 +5,8 @@ import io.appium.java_client.flutter.android.FlutterAndroidDriver;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,7 +25,7 @@ public class Main {
     
     static FlutterAndroidDriver driver;
     static DesiredCapabilities dCap;
-    static WebDriverWait wait; 
+    static WebDriverWait wait;
 
     // ANSI escape codes for colors
     public static final String ANSI_RESET = "\u001B[0m";
@@ -38,9 +40,24 @@ public class Main {
 
     public static void main(String[] args) {
         AnsiConsole.systemInstall();
+        
+        // set HashMap for tour guide
+        HashMap<Integer, String> mappingTour = new HashMap<>();
+        mappingTour.put(0, "continue");
+        mappingTour.put(1, "continue");
+        mappingTour.put(2, "continue");
+        mappingTour.put(3, "continue");
+        mappingTour.put(4, "continue");
+        mappingTour.put(5, "continue");
+        mappingTour.put(6, "continue");
+        
         try {
             initiateDevice();
-            OnboardTest.onboardLogin();
+            OnboardTest.onboardLogin();     
+            Dashboard.addIdPelanggan(Boolean.TRUE);
+            Thread.sleep(2500);
+            Dashboard.tourGuide(mappingTour);
+//            System.out.println(Utility.getLatestOTP());
         } catch (Exception e) {
             System.out.println(e.getCause());
             System.out.println(e.getMessage());
